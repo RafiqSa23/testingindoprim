@@ -1,31 +1,36 @@
+// ============= Full file contents =============
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Users, Linkedin, Mail } from 'lucide-react';
+import directorPhoto from '@/assets/team-director.jpg';
+import operationsPhoto from '@/assets/team-operations.jpg';
+import hsePhoto from '@/assets/team-hse.jpg';
+import dgPhoto from '@/assets/team-dg.jpg';
 
 const team = [
   {
     name: 'Direktur Utama',
     role: 'President Director',
-    initials: 'DU',
+    photo: directorPhoto,
     bio: 'Memimpin strategi perusahaan dan pengembangan bisnis logistik barang berbahaya.',
   },
   {
     name: 'Manajer Operasional',
     role: 'Operations Manager',
-    initials: 'MO',
+    photo: operationsPhoto,
     bio: 'Mengawasi seluruh operasional pengiriman dan memastikan kepatuhan keselamatan.',
   },
   {
     name: 'Manajer HSE',
     role: 'HSE Manager',
-    initials: 'MH',
+    photo: hsePhoto,
     bio: 'Bertanggung jawab atas standar kesehatan, keselamatan kerja, dan lingkungan.',
   },
   {
     name: 'Koordinator DG',
     role: 'Dangerous Goods Specialist',
-    initials: 'DG',
+    photo: dgPhoto,
     bio: 'Ahli bersertifikat dalam penanganan dan dokumentasi barang berbahaya.',
   },
 ];
@@ -67,10 +72,15 @@ const TeamSection = () => {
               className="value-card text-center group"
             >
               <div className="relative mx-auto mb-4">
-                <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <span className="text-2xl font-display font-bold text-primary-foreground">
-                    {member.initials}
-                  </span>
+                <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-primary/20 group-hover:border-primary/40 group-hover:scale-105 transition-all duration-300">
+                  <img
+                    src={member.photo}
+                    alt={`Foto ${member.name}`}
+                    loading="lazy"
+                    width={256}
+                    height={256}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
               <h4 className="font-display font-bold text-foreground mb-1">{member.name}</h4>
